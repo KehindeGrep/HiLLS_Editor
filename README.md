@@ -16,3 +16,5 @@ Step 8. Give your model a name > finish
 Step 9. Start drawing your HiLLS Model, starting with the HSystem
 
 Thank you
+
+NOTE: eclipse version: https://www.eclipse.org/epsilon/download/
