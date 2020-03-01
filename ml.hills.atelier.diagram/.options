@@ -1,0 +1,7 @@
+# Tracing options for the ml.hills.atelier.diagram plug-in
+
+# Common issues
+ml.hills.atelier.diagram/debug=false
+
+# Visual IDs
+ml.hills.atelier.diagram/debug/visualID=false

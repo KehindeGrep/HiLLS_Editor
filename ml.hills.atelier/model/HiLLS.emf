@@ -1,0 +1,285 @@
+@namespace(uri="http://www.webfst.fst-usttb-edu.ml/hills", prefix="hills")
+@gmf
+package hills; 
+@gmf.diagram(model.extension="hills", diagram.extension="dhills")
+class HSpecification {
+	attr String nomModele;
+	attr String descripModele;
+	val HClassifier[*] composants;
+	val Lien[*] liens;
+	val HSpecification[*] hspecification;	
+	val GenericNode[*] genericNodes;
+	val HRequirementSpecification[*] requirementSpecification;
+}
+abstract class Nomme {
+	attr String ntime;
+}
+abstract class HClassifier extends Nomme {
+	@gmf.affixed(layout="free")
+	val Port[*] ports;
+}
+@gmf.node(label="ntime", figure="rectangle", size="200,300", label.icon="false", border.width="2", border.color="0,0,0")
+class HSystem extends HClassifier {
+	@gmf.compartment(layout="free")
+	val Declaration[*] declaratios;
+	@gmf.compartment(layout="free")
+	val Function [*] fonctions;
+	@gmf.compartment(layout="free")
+	val Configuration [*] configurations;
+	val Transition [*] transitions;	
+	val TestNode[*] conditions;
+}
+@gmf.node(label="ntime", figure="rectangle", size="150,180", label.icon="false",border.width="2", border.color="0,0,0")
+class HClass extends HClassifier {
+	@gmf.compartment(layout="free")
+	val Declaration[*] declaratios;
+	@gmf.compartment(layout="free")
+	val Function [*] fonctions;	
+}
+@gmf.node(label="pname", figure="rectangle", size="90,60", label.icon="false", border.width="2", border.color="0,0,0")
+class Port {
+	attr String pname;
+	@emf.gen(propertyMultiline="true")
+	attr String othername;
+	@gmf.compartment(layout="list")
+	val PortDeclaration[*] entreePorts;
+}
+@gmf.node(label="pdeclaration", label.icon="false", figure="rectangle", size="85,25" )
+class PortDeclaration {
+	attr String pdeclaration;
+}
+@gmf.node(label="ntime", label.icon="false", figure="rectangle", size="150,30", border.color="0,0,0", border.width="2" )
+class GenericNode extends Nomme {	
+}
+abstract class Lien {
+	attr String llabel;
+	ref HClassifier source;
+	ref Nomme target;
+}
+@gmf.link(source="source", source.decoration="filledrhomb", target="target", style="solid", width="3", label.icon="false", color="0,0,0", label="llabel")
+class Composition extends Lien  {	
+}
+@gmf.link(source="source", source.decoration="rhomb", target="target", style="solid", width="3", label.icon="false", color="0,0,0", label="llabel")
+class Aggregation extends Lien {	
+}
+@gmf.link(source="source", target="target", style="solid", width="3", label.icon="false", color="0,0,0", label="llabel")
+class Reference extends Lien {	
+}
+abstract class ConfNomme{
+	attr String libelle;		
+}
+abstract class Configuration extends ConfNomme{		
+}
+abstract class Transition {	
+	ref Configuration source;
+	ref ConfNomme target;
+}
+@gmf.node(label="ename", label.icon="false", figure="rectangle", size="55,100", border.width="2", border.color="0,0,0")
+class Declaration {
+	attr String ename;
+	@gmf.compartement(layout="free")
+	val PortDeclaration[*] declarations;
+	@gmf.compartement(layout="free")
+	val PortDeclaration[*] predicats;	
+}
+@gmf.node(label="libelle", figure="rounded", size="55,100", label.icon="false", border.width="2", border.color="0,0,0")
+class FiniteConfiguration extends Configuration {	
+	@gmf.compartment(layout="free")
+	val Property[*] proprietes;
+	@gmf.compartment(layout="free")
+	val Activity [*] activites;	
+	@gmf.compartment(layout="free")
+	val SojournTime[1] SojTime;	
+}
+@gmf.node(label="libelle", figure="ellipse",  label.icon="false", border.width="2", border.color="0,0,0", color="0,0,0")
+class InitialConfiguration extends Configuration {	
+}
+@gmf.node(label="libelle", figure="rounded", size="55,80", label.icon="false", border.width="2", border.color="0,0,0")
+class PassiveConfiguration extends Configuration  {	
+	@gmf.compartment(layout="free")
+	val Property[*] proprietes;
+	@gmf.compartment(layout="free")
+	val Activity [*] activites;
+}
+@gmf.node(label="libelle", figure="ellipse", label.icon="false", border.width="2", border.color="0,0,0")
+class TransientConfiguration extends Configuration  {
+	@gmf.compartment(layout="free")
+	val Property[*] proprietes;
+	@gmf.compartment(layout="free")
+	val Activity [*] activites;	
+}
+@gmf.link(source="source", target="target", style="dot", target.decoration="arrow", label.icon="false", color="0,0,0", border.width="3", label="ctname")
+class ConfluentTransition extends Transition {	
+	attr String ctname;
+}
+@gmf.link(source="source", target="target", style="solid", target.decoration="arrow", color="0,0,0", border.width="3", label="itname")
+class InternalTransition extends Transition {
+	attr String itname;	
+}
+@gmf.link(source="source", target="target", style="dash", target.decoration="arrow", color="0,0,0", border.width="3", label="etname")
+class ExternalTransition extends Transition {
+	attr String etname;	
+}
+@gmf.node(label="fname", label.icon="false", figure="rectangle", size="100,55", border.width="2", border.color="0,0,0")
+class Function {	
+	attr String fname;
+	@emf.gen(propertyMultiline="true")
+	attr String declarations;
+	@gmf.compartment(layout="list")
+	val PortDeclaration[*] ppredicats;
+}
+@gmf.node(label="prname1", label.icon="false")
+class Property {
+	attr String prname1;
+	@emf.gen(propertyMultiline="true")
+	attr String prname2;	
+	@gmf.compartment(layout="list")
+	val PortDeclaration[*] ppredicats;	
+}
+@gmf.node(label="acname1", label.icon="false")
+class Activity {
+	attr String acname1;
+	@emf.gen(propertyMultiline="true")
+	attr String acname2;
+	@gmf.compartment(layout="list")
+	val PortDeclaration[*] ppredicats;
+}
+@gmf.node(label="stime", label.icon="false", figure="rectangle", border="none")
+class SojournTime {
+	attr String stime;
+}
+@gmf.node(label="ttime", label.icon="false", figure="org.eclipse.gmf.runtime.gef.ui.internal.figures.DiamondFigure", border.width="2", border.color="0,0,0")
+class TestNode extends Configuration{
+	attr String ttime;
+	@emf.gen(propertyMultiline="true")
+	attr String contenu;
+}
+@gmf.node(label="ntime", label.icon="false", figure="rectangle", size="100,55", border.width="2", border.color="0,0,0") 
+class HRequirementSpecification extends Nomme {
+  @emf.gen(propertyMultiline="true")
+  attr String description;
+  @gmf.compartment(layout="free")
+  val TLProperty[*] temporalProperties;
+}
+@gmf.node(label="bename", figure="rounded", size="55,100", label.icon="false", border.width="2", border.color="0,0,0",tool.name="BExistence")
+class BExistence extends TLProperty{
+	attr String bename;
+	@gmf.compartment(layout="free")
+	val Predicat[1] predicats;
+	@gmf.compartement(layout="free")
+	val PortDeclaration[*] declarations;
+	@gmf.compartement(layout="free")
+	val PortDeclaration[*] ppredicats;
+}
+@gmf.node(label="uename", figure="rounded", size="55,100", label.icon="false", border.width="2", border.color="0,0,0", tool.name="UExistence")
+class UExistence extends TLProperty{
+	attr String uename;
+	@gmf.compartment(layout="free")
+	val Predicat[1] predicats;
+	@gmf.compartement(layout="free")
+	val PortDeclaration[*] declarations;
+	@gmf.compartement(layout="free")
+	val PortDeclaration[*] ppredicats;
+}
+@gmf.node(label="eename", figure="rounded", size="55,100", label.icon="false", border.width="2", border.color="0,0,0", tool.name="EExistence")
+class EExistence extends TLProperty{
+	attr String eename;
+	@gmf.compartment(layout="free")
+	val Predicat[1] predicats;
+	@gmf.compartement(layout="free")
+	val PortDeclaration[*] declarations;
+	@gmf.compartement(layout="free")
+	val PortDeclaration[*] ppredicats;
+}
+@gmf.node(label="caname", figure="rounded", size="55,100", label.icon="false", border.width="2", border.color="0,0,0", border.kind="DASH",
+tool.name="CAbsence", border.style="dash")
+class CAbsence extends TLProperty{
+	attr String caname;
+	@gmf.compartment(layout="free")
+	val Predicat[1] predicats;	
+	@gmf.compartement(layout="free")
+	val PortDeclaration[*] declarations;
+	@gmf.compartement(layout="free")
+	val PortDeclaration[*] ppredicats;
+}
+class TLProperty {
+  ref PropertyPattern[1] pattern;
+  ref Scope[1] scope;
+}
+class ResponseChain extends PropertyPattern {
+}
+class PrecedenceChain extends PropertyPattern {
+}
+class BoundedExistence extends PropertyPattern {
+  attr int frequency;
+  ref Proposition[1] state;
+}
+class PropertyPattern {
+	attr String ppname;
+}
+class MultiTrigger extends ResponseChain {
+  ref Proposition[2..*] triggers;
+  ref Proposition[1] response;
+}
+class SingleTrigger extends ResponseChain {
+  ref Proposition[1] triggers;
+  ref Proposition[2..*] responses;
+}
+class MultiCause extends PrecedenceChain {
+  ref Proposition[2..*] causes;
+  ref Proposition[1] effect;
+}
+class Response extends PropertyPattern {
+  ref Proposition[1] trigger;
+  ref Proposition[1] response;
+}
+class Universality extends PropertyPattern {
+  ref Proposition[1] state;
+}
+class Precedence extends PropertyPattern {
+}
+class SingleCause extends PrecedenceChain {
+  ref Proposition[1] causes;
+  ref Proposition[2..*] effects;
+}
+class Existence extends PropertyPattern {
+  ref Proposition[1] state;
+}
+class Absence extends PropertyPattern {
+  ref Proposition[1] state;
+}
+class Proposition {
+}
+class Predicat {
+}
+class Before extends Scope {
+  ref Proposition[1] delimiter;
+}
+class After extends Scope {
+  ref Proposition[1] delimiter;
+}
+class Global extends Scope {
+}
+class AfterUntil extends Scope {
+  ref Proposition[1] startDelimiter;
+  ref Proposition[1] endDelimiter;
+}
+class Scope {
+}
+class Between extends Scope {
+  ref Proposition[1] startDelimiter;
+  ref Proposition[1] endDelimiter;
+}
+@gmf.link(source="source", target="target", style="solid", target.decoration="arrow", color="0,0,0", border.width="2", label="tll")
+class Implication extends TLLien {}
+@gmf.link(source="source", target="target", style="solid", target.decoration="arrow", color="0,0,0", border.width="2", label="tll")
+class Next extends TLLien {}
+@gmf.link(source="source", target="target", style="solid", source.decoration="arrow",target.decoration="arrow", color="0,0,0", border.width="2", label="tll")
+class Concurrency extends TLLien {}
+abstract class TLLien {
+	attr String tll;
+	ref TLProperty source;
+  	ref TLProperty target;
+}
+
+

@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="ASCII"?>
+<gmfgraph:Canvas xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gmfgraph="http://www.eclipse.org/gmf/2006/GraphicalDefinition" name="hills">
+  <figures name="Default">
+    <figures xsi:type="gmfgraph:PolygonDecoration" name="FilledRhomb">
+      <template x="-1" y="1"/>
+      <template/>
+      <template x="-1" y="-1"/>
+      <template x="-2"/>
+      <template x="-1" y="1"/>
+    </figures>
+    <figures xsi:type="gmfgraph:PolygonDecoration" name="Rhomb">
+      <backgroundColor xsi:type="gmfgraph:ConstantColor"/>
+      <template x="-1" y="1"/>
+      <template/>
+      <template x="-1" y="-1"/>
+      <template x="-2"/>
+      <template x="-1" y="1"/>
+    </figures>
+    <figures xsi:type="gmfgraph:PolylineDecoration" name="ConfluentTransitionFigureTargetDecoration"/>
+    <figures xsi:type="gmfgraph:PolylineDecoration" name="InternalTransitionFigureTargetDecoration"/>
+    <figures xsi:type="gmfgraph:PolylineDecoration" name="ExternalTransitionFigureTargetDecoration"/>
+    <descriptors name="HSystemFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="HSystemFigure" lineWidth="2">
+        <foregroundColor xsi:type="gmfgraph:RGBColor"/>
+        <preferredSize dx="200" dy="300"/>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="HSystemLabelFigure" text="HSystem">
+          <maximumSize dx="10000" dy="50"/>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="HSystemDeclaratiosCompartmentFigure" outline="false"/>
+        <children xsi:type="gmfgraph:Rectangle" name="HSystemFonctionsCompartmentFigure" outline="false"/>
+        <children xsi:type="gmfgraph:Rectangle" name="HSystemConfigurationsCompartmentFigure" outline="false"/>
+      </actualFigure>
+      <accessors accessor="getFigureHSystemLabelFigure" figure="//@figures.0/@descriptors.0/@actualFigure/@children.0"/>
+      <accessors accessor="getHSystemDeclaratiosCompartmentFigure" figure="//@figures.0/@descriptors.0/@actualFigure/@children.1"/>
+      <accessors accessor="getHSystemFonctionsCompartmentFigure" figure="//@figures.0/@descriptors.0/@actualFigure/@children.2"/>
+      <accessors accessor="getHSystemConfigurationsCompartmentFigure" figure="//@figures.0/@descriptors.0/@actualFigure/@children.3"/>
+    </descriptors>
+    <descriptors name="HClassFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="HClassFigure" lineWidth="2">
+        <foregroundColor xsi:type="gmfgraph:RGBColor"/>
+        <preferredSize dx="150" dy="180"/>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="HClassLabelFigure" text="HClass">
+          <maximumSize dx="10000" dy="50"/>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="HClassDeclaratiosCompartmentFigure" outline="false"/>
+        <children xsi:type="gmfgraph:Rectangle" name="HClassFonctionsCompartmentFigure" outline="false"/>
+      </actualFigure>
+      <accessors accessor="getFigureHClassLabelFigure" figure="//@figures.0/@descriptors.1/@actualFigure/@children.0"/>
+      <accessors accessor="getHClassDeclaratiosCompartmentFigure" figure="//@figures.0/@descriptors.1/@actualFigure/@children.1"/>
+      <accessors accessor="getHClassFonctionsCompartmentFigure" figure="//@figures.0/@descriptors.1/@actualFigure/@children.2"/>
+    </descriptors>
+    <descriptors name="PortFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="PortFigure" lineWidth="2">
+        <foregroundColor xsi:type="gmfgraph:RGBColor"/>
+        <preferredSize dx="90" dy="60"/>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="PortLabelFigure" text="Port">
+          <maximumSize dx="10000" dy="50"/>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="PortEntreePortsCompartmentFigure" outline="false"/>
+      </actualFigure>
+      <accessors accessor="getFigurePortLabelFigure" figure="//@figures.0/@descriptors.2/@actualFigure/@children.0"/>
+      <accessors accessor="getPortEntreePortsCompartmentFigure" figure="//@figures.0/@descriptors.2/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors name="PortDeclarationFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="PortDeclarationFigure">
+        <preferredSize dx="85" dy="25"/>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="PortDeclarationLabelFigure" text="PortDeclaration"/>
+      </actualFigure>
+      <accessors accessor="getFigurePortDeclarationLabelFigure" figure="//@figures.0/@descriptors.3/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="GenericNodeFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="GenericNodeFigure" lineWidth="2">
+        <foregroundColor xsi:type="gmfgraph:RGBColor"/>
+        <preferredSize dx="150" dy="30"/>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="GenericNodeLabelFigure" text="GenericNode"/>
+      </actualFigure>
+      <accessors accessor="getFigureGenericNodeLabelFigure" figure="//@figures.0/@descriptors.4/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="DeclarationFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="DeclarationFigure" lineWidth="2">
+        <foregroundColor xsi:type="gmfgraph:RGBColor"/>
+        <preferredSize dx="55" dy="100"/>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="DeclarationLabelFigure" text="Declaration"/>
+      </actualFigure>
+      <accessors accessor="getFigureDeclarationLabelFigure" figure="//@figures.0/@descriptors.5/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="FiniteConfigurationFigure">
+      <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="FiniteConfigurationFigure" lineWidth="2">
+        <foregroundColor xsi:type="gmfgraph:RGBColor"/>
+        <preferredSize dx="55" dy="100"/>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="FiniteConfigurationLabelFigure" text="FiniteConfiguration">
+          <maximumSize dx="10000" dy="50"/>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="FiniteConfigurationProprietesCompartmentFigure" outline="false"/>
+        <children xsi:type="gmfgraph:Rectangle" name="FiniteConfigurationActivitesCompartmentFigure" outline="false"/>
+        <children xsi:type="gmfgraph:Rectangle" name="FiniteConfigurationSojTimeCompartmentFigure" outline="false"/>
+      </actualFigure>
+      <accessors accessor="getFigureFiniteConfigurationLabelFigure" figure="//@figures.0/@descriptors.6/@actualFigure/@children.0"/>
+      <accessors accessor="getFiniteConfigurationProprietesCompartmentFigure" figure="//@figures.0/@descriptors.6/@actualFigure/@children.1"/>
+      <accessors accessor="getFiniteConfigurationActivitesCompartmentFigure" figure="//@figures.0/@descriptors.6/@actualFigure/@children.2"/>
+      <accessors accessor="getFiniteConfigurationSojTimeCompartmentFigure" figure="//@figures.0/@descriptors.6/@actualFigure/@children.3"/>
+    </descriptors>
+    <descriptors name="InitialConfigurationFigure">
+      <actualFigure xsi:type="gmfgraph:Ellipse" name="InitialConfigurationFigure" lineWidth="2">
+        <foregroundColor xsi:type="gmfgraph:RGBColor"/>
+        <backgroundColor xsi:type="gmfgraph:RGBColor"/>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="InitialConfigurationLabelFigure" text="InitialConfiguration"/>
+      </actualFigure>
+      <accessors accessor="getFigureInitialConfigurationLabelFigure" figure="//@figures.0/@descriptors.7/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="PassiveConfigurationFigure">
+      <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="PassiveConfigurationFigure" lineWidth="2">
+        <foregroundColor xsi:type="gmfgraph:RGBColor"/>
+        <preferredSize dx="55" dy="80"/>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="PassiveConfigurationLabelFigure" text="PassiveConfiguration">
+          <maximumSize dx="10000" dy="50"/>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="PassiveConfigurationProprietesCompartmentFigure" outline="false"/>
+        <children xsi:type="gmfgraph:Rectangle" name="PassiveConfigurationActivitesCompartmentFigure" outline="false"/>
+      </actualFigure>
+      <accessors accessor="getFigurePassiveConfigurationLabelFigure" figure="//@figures.0/@descriptors.8/@actualFigure/@children.0"/>
+      <accessors accessor="getPassiveConfigurationProprietesCompartmentFigure" figure="//@figures.0/@descriptors.8/@actualFigure/@children.1"/>
+      <accessors accessor="getPassiveConfigurationActivitesCompartmentFigure" figure="//@figures.0/@descriptors.8/@actualFigure/@children.2"/>
+    </descriptors>
+    <descriptors name="TransientConfigurationFigure">
+      <actualFigure xsi:type="gmfgraph:Ellipse" name="TransientConfigurationFigure" lineWidth="2">
+        <foregroundColor xsi:type="gmfgraph:RGBColor"/>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="TransientConfigurationLabelFigure" text="TransientConfiguration">
+          <maximumSize dx="10000" dy="50"/>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="TransientConfigurationProprietesCompartmentFigure" outline="false"/>
+        <children xsi:type="gmfgraph:Rectangle" name="TransientConfigurationActivitesCompartmentFigure" outline="false"/>
+      </actualFigure>
+      <accessors accessor="getFigureTransientConfigurationLabelFigure" figure="//@figures.0/@descriptors.9/@actualFigure/@children.0"/>
+      <accessors accessor="getTransientConfigurationProprietesCompartmentFigure" figure="//@figures.0/@descriptors.9/@actualFigure/@children.1"/>
+      <accessors accessor="getTransientConfigurationActivitesCompartmentFigure" figure="//@figures.0/@descriptors.9/@actualFigure/@children.2"/>
+    </descriptors>
+    <descriptors name="FunctionFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="FunctionFigure" lineWidth="2">
+        <foregroundColor xsi:type="gmfgraph:RGBColor"/>
+        <preferredSize dx="100" dy="55"/>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="FunctionLabelFigure" text="Function">
+          <maximumSize dx="10000" dy="50"/>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="FunctionPpredicatsCompartmentFigure" outline="false"/>
+      </actualFigure>
+      <accessors accessor="getFigureFunctionLabelFigure" figure="//@figures.0/@descriptors.10/@actualFigure/@children.0"/>
+      <accessors accessor="getFunctionPpredicatsCompartmentFigure" figure="//@figures.0/@descriptors.10/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors name="PropertyFigure">
+      <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="PropertyFigure">
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="PropertyLabelFigure" text="Property">
+          <maximumSize dx="10000" dy="50"/>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="PropertyPpredicatsCompartmentFigure" outline="false"/>
+      </actualFigure>
+      <accessors accessor="getFigurePropertyLabelFigure" figure="//@figures.0/@descriptors.11/@actualFigure/@children.0"/>
+      <accessors accessor="getPropertyPpredicatsCompartmentFigure" figure="//@figures.0/@descriptors.11/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors name="ActivityFigure">
+      <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="ActivityFigure">
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="ActivityLabelFigure" text="Activity">
+          <maximumSize dx="10000" dy="50"/>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="ActivityPpredicatsCompartmentFigure" outline="false"/>
+      </actualFigure>
+      <accessors accessor="getFigureActivityLabelFigure" figure="//@figures.0/@descriptors.12/@actualFigure/@children.0"/>
+      <accessors accessor="getActivityPpredicatsCompartmentFigure" figure="//@figures.0/@descriptors.12/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors name="SojournTimeFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="SojournTimeFigure">
+        <children xsi:type="gmfgraph:Label" name="SojournTimeLabelFigure" text="SojournTime"/>
+      </actualFigure>
+      <accessors accessor="getFigureSojournTimeLabelFigure" figure="//@figures.0/@descriptors.13/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="TestNodeFigure">
+      <actualFigure xsi:type="gmfgraph:CustomFigure" name="TestNodeFigure" qualifiedClassName="org.eclipse.gmf.runtime.gef.ui.internal.figures.DiamondFigure">
+        <foregroundColor xsi:type="gmfgraph:RGBColor"/>
+        <children xsi:type="gmfgraph:Label" name="TestNodeLabelFigure" text="TestNode"/>
+      </actualFigure>
+      <accessors accessor="getFigureTestNodeLabelFigure" figure="//@figures.0/@descriptors.14/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="HRequirementSpecificationFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="HRequirementSpecificationFigure" lineWidth="2">
+        <foregroundColor xsi:type="gmfgraph:RGBColor"/>
+        <preferredSize dx="100" dy="55"/>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="HRequirementSpecificationLabelFigure" text="HRequirementSpecification">
+          <maximumSize dx="10000" dy="50"/>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="HRequirementSpecificationTemporalPropertiesCompartmentFigure" outline="false"/>
+      </actualFigure>
+      <accessors accessor="getFigureHRequirementSpecificationLabelFigure" figure="//@figures.0/@descriptors.15/@actualFigure/@children.0"/>
+      <accessors accessor="getHRequirementSpecificationTemporalPropertiesCompartmentFigure" figure="//@figures.0/@descriptors.15/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors name="BExistenceFigure">
+      <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="BExistenceFigure" lineWidth="2">
+        <foregroundColor xsi:type="gmfgraph:RGBColor"/>
+        <preferredSize dx="55" dy="100"/>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="BExistenceLabelFigure" text="BExistence">
+          <maximumSize dx="10000" dy="50"/>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="BExistencePredicatsCompartmentFigure" outline="false"/>
+      </actualFigure>
+      <accessors accessor="getFigureBExistenceLabelFigure" figure="//@figures.0/@descriptors.16/@actualFigure/@children.0"/>
+      <accessors accessor="getBExistencePredicatsCompartmentFigure" figure="//@figures.0/@descriptors.16/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors name="UExistenceFigure">
+      <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="UExistenceFigure" lineWidth="2">
+        <foregroundColor xsi:type="gmfgraph:RGBColor"/>
+        <preferredSize dx="55" dy="100"/>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="UExistenceLabelFigure" text="UExistence">
+          <maximumSize dx="10000" dy="50"/>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="UExistencePredicatsCompartmentFigure" outline="false"/>
+      </actualFigure>
+      <accessors accessor="getFigureUExistenceLabelFigure" figure="//@figures.0/@descriptors.17/@actualFigure/@children.0"/>
+      <accessors accessor="getUExistencePredicatsCompartmentFigure" figure="//@figures.0/@descriptors.17/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors name="EExistenceFigure">
+      <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="EExistenceFigure" lineWidth="2">
+        <foregroundColor xsi:type="gmfgraph:RGBColor"/>
+        <preferredSize dx="55" dy="100"/>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="EExistenceLabelFigure" text="EExistence">
+          <maximumSize dx="10000" dy="50"/>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="EExistencePredicatsCompartmentFigure" outline="false"/>
+      </actualFigure>
+      <accessors accessor="getFigureEExistenceLabelFigure" figure="//@figures.0/@descriptors.18/@actualFigure/@children.0"/>
+      <accessors accessor="getEExistencePredicatsCompartmentFigure" figure="//@figures.0/@descriptors.18/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors name="CAbsenceFigure">
+      <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="CAbsenceFigure" lineWidth="2" lineKind="LINE_DASH">
+        <foregroundColor xsi:type="gmfgraph:RGBColor"/>
+        <preferredSize dx="55" dy="100"/>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="CAbsenceLabelFigure" text="CAbsence">
+          <maximumSize dx="10000" dy="50"/>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="CAbsencePredicatsCompartmentFigure" outline="false"/>
+      </actualFigure>
+      <accessors accessor="getFigureCAbsenceLabelFigure" figure="//@figures.0/@descriptors.19/@actualFigure/@children.0"/>
+      <accessors accessor="getCAbsencePredicatsCompartmentFigure" figure="//@figures.0/@descriptors.19/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors name="CompositionFigure">
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="CompositionFigure" lineWidth="3" sourceDecoration="//@figures.0/@figures.0">
+        <foregroundColor xsi:type="gmfgraph:RGBColor"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors name="CompositionLabelFigure">
+      <actualFigure xsi:type="gmfgraph:Label" name="CompositionLabelLabel" text="Composition"/>
+    </descriptors>
+    <descriptors name="AggregationFigure">
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="AggregationFigure" lineWidth="3" sourceDecoration="//@figures.0/@figures.1">
+        <foregroundColor xsi:type="gmfgraph:RGBColor"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors name="AggregationLabelFigure">
+      <actualFigure xsi:type="gmfgraph:Label" name="AggregationLabelLabel" text="Aggregation"/>
+    </descriptors>
+    <descriptors name="ReferenceFigure">
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="ReferenceFigure" lineWidth="3">
+        <foregroundColor xsi:type="gmfgraph:RGBColor"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors name="ReferenceLabelFigure">
+      <actualFigure xsi:type="gmfgraph:Label" name="ReferenceLabelLabel" text="Reference"/>
+    </descriptors>
+    <descriptors name="ConfluentTransitionFigure">
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="ConfluentTransitionFigure" lineKind="LINE_DOT" targetDecoration="//@figures.0/@figures.2">
+        <foregroundColor xsi:type="gmfgraph:RGBColor"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors name="ConfluentTransitionLabelFigure">
+      <actualFigure xsi:type="gmfgraph:Label" name="ConfluentTransitionLabelLabel" text="ConfluentTransition"/>
+    </descriptors>
+    <descriptors name="InternalTransitionFigure">
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="InternalTransitionFigure" targetDecoration="//@figures.0/@figures.3">
+        <foregroundColor xsi:type="gmfgraph:RGBColor"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors name="InternalTransitionLabelFigure">
+      <actualFigure xsi:type="gmfgraph:Label" name="InternalTransitionLabelLabel" text="InternalTransition"/>
+    </descriptors>
+    <descriptors name="ExternalTransitionFigure">
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="ExternalTransitionFigure" lineKind="LINE_DASH" targetDecoration="//@figures.0/@figures.4">
+        <foregroundColor xsi:type="gmfgraph:RGBColor"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors name="ExternalTransitionLabelFigure">
+      <actualFigure xsi:type="gmfgraph:Label" name="ExternalTransitionLabelLabel" text="ExternalTransition"/>
+    </descriptors>
+  </figures>
+  <nodes name="HSystem" figure="HSystemFigure">
+    <facets xsi:type="gmfgraph:DefaultSizeFacet">
+      <defaultSize dx="200" dy="300"/>
+    </facets>
+  </nodes>
+  <nodes name="HClass" figure="HClassFigure">
+    <facets xsi:type="gmfgraph:DefaultSizeFacet">
+      <defaultSize dx="150" dy="180"/>
+    </facets>
+  </nodes>
+  <nodes name="Port" figure="PortFigure" affixedParentSide="NORTH">
+    <facets xsi:type="gmfgraph:DefaultSizeFacet">
+      <defaultSize dx="90" dy="60"/>
+    </facets>
+  </nodes>
+  <nodes name="PortDeclaration" figure="PortDeclarationFigure">
+    <facets xsi:type="gmfgraph:DefaultSizeFacet">
+      <defaultSize dx="85" dy="25"/>
+    </facets>
+  </nodes>
+  <nodes name="GenericNode" figure="GenericNodeFigure">
+    <facets xsi:type="gmfgraph:DefaultSizeFacet">
+      <defaultSize dx="150" dy="30"/>
+    </facets>
+  </nodes>
+  <nodes name="Declaration" figure="DeclarationFigure">
+    <facets xsi:type="gmfgraph:DefaultSizeFacet">
+      <defaultSize dx="55" dy="100"/>
+    </facets>
+  </nodes>
+  <nodes name="FiniteConfiguration" figure="FiniteConfigurationFigure">
+    <facets xsi:type="gmfgraph:DefaultSizeFacet">
+      <defaultSize dx="55" dy="100"/>
+    </facets>
+  </nodes>
+  <nodes name="InitialConfiguration" figure="InitialConfigurationFigure"/>
+  <nodes name="PassiveConfiguration" figure="PassiveConfigurationFigure">
+    <facets xsi:type="gmfgraph:DefaultSizeFacet">
+      <defaultSize dx="55" dy="80"/>
+    </facets>
+  </nodes>
+  <nodes name="TransientConfiguration" figure="TransientConfigurationFigure"/>
+  <nodes name="Function" figure="FunctionFigure">
+    <facets xsi:type="gmfgraph:DefaultSizeFacet">
+      <defaultSize dx="100" dy="55"/>
+    </facets>
+  </nodes>
+  <nodes name="Property" figure="PropertyFigure"/>
+  <nodes name="Activity" figure="ActivityFigure"/>
+  <nodes name="SojournTime" figure="SojournTimeFigure"/>
+  <nodes name="TestNode" figure="TestNodeFigure"/>
+  <nodes name="HRequirementSpecification" figure="HRequirementSpecificationFigure">
+    <facets xsi:type="gmfgraph:DefaultSizeFacet">
+      <defaultSize dx="100" dy="55"/>
+    </facets>
+  </nodes>
+  <nodes name="BExistence" figure="BExistenceFigure">
+    <facets xsi:type="gmfgraph:DefaultSizeFacet">
+      <defaultSize dx="55" dy="100"/>
+    </facets>
+  </nodes>
+  <nodes name="UExistence" figure="UExistenceFigure">
+    <facets xsi:type="gmfgraph:DefaultSizeFacet">
+      <defaultSize dx="55" dy="100"/>
+    </facets>
+  </nodes>
+  <nodes name="EExistence" figure="EExistenceFigure">
+    <facets xsi:type="gmfgraph:DefaultSizeFacet">
+      <defaultSize dx="55" dy="100"/>
+    </facets>
+  </nodes>
+  <nodes name="CAbsence" figure="CAbsenceFigure">
+    <facets xsi:type="gmfgraph:DefaultSizeFacet">
+      <defaultSize dx="55" dy="100"/>
+    </facets>
+  </nodes>
+  <connections name="Composition" figure="CompositionFigure"/>
+  <connections name="Aggregation" figure="AggregationFigure"/>
+  <connections name="Reference" figure="ReferenceFigure"/>
+  <connections name="ConfluentTransition" figure="ConfluentTransitionFigure"/>
+  <connections name="InternalTransition" figure="InternalTransitionFigure"/>
+  <connections name="ExternalTransition" figure="ExternalTransitionFigure"/>
+  <compartments name="HSystemDeclaratiosCompartment" figure="HSystemFigure" collapsible="true" accessor="//@figures.0/@descriptors.0/@accessors.1"/>
+  <compartments name="HSystemFonctionsCompartment" figure="HSystemFigure" collapsible="true" accessor="//@figures.0/@descriptors.0/@accessors.2"/>
+  <compartments name="HSystemConfigurationsCompartment" figure="HSystemFigure" collapsible="true" accessor="//@figures.0/@descriptors.0/@accessors.3"/>
+  <compartments name="HClassDeclaratiosCompartment" figure="HClassFigure" collapsible="true" accessor="//@figures.0/@descriptors.1/@accessors.1"/>
+  <compartments name="HClassFonctionsCompartment" figure="HClassFigure" collapsible="true" accessor="//@figures.0/@descriptors.1/@accessors.2"/>
+  <compartments name="PortEntreePortsCompartment" figure="PortFigure" collapsible="true" accessor="//@figures.0/@descriptors.2/@accessors.1"/>
+  <compartments name="FiniteConfigurationProprietesCompartment" figure="FiniteConfigurationFigure" collapsible="true" accessor="//@figures.0/@descriptors.6/@accessors.1"/>
+  <compartments name="FiniteConfigurationActivitesCompartment" figure="FiniteConfigurationFigure" collapsible="true" accessor="//@figures.0/@descriptors.6/@accessors.2"/>
+  <compartments name="FiniteConfigurationSojTimeCompartment" figure="FiniteConfigurationFigure" collapsible="true" accessor="//@figures.0/@descriptors.6/@accessors.3"/>
+  <compartments name="PassiveConfigurationProprietesCompartment" figure="PassiveConfigurationFigure" collapsible="true" accessor="//@figures.0/@descriptors.8/@accessors.1"/>
+  <compartments name="PassiveConfigurationActivitesCompartment" figure="PassiveConfigurationFigure" collapsible="true" accessor="//@figures.0/@descriptors.8/@accessors.2"/>
+  <compartments name="TransientConfigurationProprietesCompartment" figure="TransientConfigurationFigure" collapsible="true" accessor="//@figures.0/@descriptors.9/@accessors.1"/>
+  <compartments name="TransientConfigurationActivitesCompartment" figure="TransientConfigurationFigure" collapsible="true" accessor="//@figures.0/@descriptors.9/@accessors.2"/>
+  <compartments name="FunctionPpredicatsCompartment" figure="FunctionFigure" collapsible="true" accessor="//@figures.0/@descriptors.10/@accessors.1"/>
+  <compartments name="PropertyPpredicatsCompartment" figure="PropertyFigure" collapsible="true" accessor="//@figures.0/@descriptors.11/@accessors.1"/>
+  <compartments name="ActivityPpredicatsCompartment" figure="ActivityFigure" collapsible="true" accessor="//@figures.0/@descriptors.12/@accessors.1"/>
+  <compartments name="HRequirementSpecificationTemporalPropertiesCompartment" figure="HRequirementSpecificationFigure" collapsible="true" accessor="//@figures.0/@descriptors.15/@accessors.1"/>
+  <compartments name="BExistencePredicatsCompartment" figure="BExistenceFigure" collapsible="true" accessor="//@figures.0/@descriptors.16/@accessors.1"/>
+  <compartments name="UExistencePredicatsCompartment" figure="UExistenceFigure" collapsible="true" accessor="//@figures.0/@descriptors.17/@accessors.1"/>
+  <compartments name="EExistencePredicatsCompartment" figure="EExistenceFigure" collapsible="true" accessor="//@figures.0/@descriptors.18/@accessors.1"/>
+  <compartments name="CAbsencePredicatsCompartment" figure="CAbsenceFigure" collapsible="true" accessor="//@figures.0/@descriptors.19/@accessors.1"/>
+  <labels name="HSystemLabel" figure="HSystemFigure" elementIcon="false" accessor="//@figures.0/@descriptors.0/@accessors.0"/>
+  <labels name="HClassLabel" figure="HClassFigure" elementIcon="false" accessor="//@figures.0/@descriptors.1/@accessors.0"/>
+  <labels name="PortLabel" figure="PortFigure" elementIcon="false" accessor="//@figures.0/@descriptors.2/@accessors.0"/>
+  <labels name="PortDeclarationLabel" figure="PortDeclarationFigure" elementIcon="false" accessor="//@figures.0/@descriptors.3/@accessors.0"/>
+  <labels name="GenericNodeLabel" figure="GenericNodeFigure" elementIcon="false" accessor="//@figures.0/@descriptors.4/@accessors.0"/>
+  <labels name="DeclarationLabel" figure="DeclarationFigure" elementIcon="false" accessor="//@figures.0/@descriptors.5/@accessors.0"/>
+  <labels name="FiniteConfigurationLabel" figure="FiniteConfigurationFigure" elementIcon="false" accessor="//@figures.0/@descriptors.6/@accessors.0"/>
+  <labels name="InitialConfigurationLabel" figure="InitialConfigurationFigure" elementIcon="false" accessor="//@figures.0/@descriptors.7/@accessors.0"/>
+  <labels name="PassiveConfigurationLabel" figure="PassiveConfigurationFigure" elementIcon="false" accessor="//@figures.0/@descriptors.8/@accessors.0"/>
+  <labels name="TransientConfigurationLabel" figure="TransientConfigurationFigure" elementIcon="false" accessor="//@figures.0/@descriptors.9/@accessors.0"/>
+  <labels name="FunctionLabel" figure="FunctionFigure" elementIcon="false" accessor="//@figures.0/@descriptors.10/@accessors.0"/>
+  <labels name="PropertyLabel" figure="PropertyFigure" elementIcon="false" accessor="//@figures.0/@descriptors.11/@accessors.0"/>
+  <labels name="ActivityLabel" figure="ActivityFigure" elementIcon="false" accessor="//@figures.0/@descriptors.12/@accessors.0"/>
+  <labels name="SojournTimeLabel" figure="SojournTimeFigure" elementIcon="false" accessor="//@figures.0/@descriptors.13/@accessors.0"/>
+  <labels name="TestNodeLabel" figure="TestNodeFigure" elementIcon="false" accessor="//@figures.0/@descriptors.14/@accessors.0"/>
+  <labels name="HRequirementSpecificationLabel" figure="HRequirementSpecificationFigure" elementIcon="false" accessor="//@figures.0/@descriptors.15/@accessors.0"/>
+  <labels name="BExistenceLabel" figure="BExistenceFigure" elementIcon="false" accessor="//@figures.0/@descriptors.16/@accessors.0"/>
+  <labels name="UExistenceLabel" figure="UExistenceFigure" elementIcon="false" accessor="//@figures.0/@descriptors.17/@accessors.0"/>
+  <labels name="EExistenceLabel" figure="EExistenceFigure" elementIcon="false" accessor="//@figures.0/@descriptors.18/@accessors.0"/>
+  <labels name="CAbsenceLabel" figure="CAbsenceFigure" elementIcon="false" accessor="//@figures.0/@descriptors.19/@accessors.0"/>
+  <labels name="CompositionLabel" figure="CompositionLabelFigure" elementIcon="false"/>
+  <labels name="AggregationLabel" figure="AggregationLabelFigure" elementIcon="false"/>
+  <labels name="ReferenceLabel" figure="ReferenceLabelFigure" elementIcon="false"/>
+  <labels name="ConfluentTransitionLabel" figure="ConfluentTransitionLabelFigure" elementIcon="false"/>
+  <labels name="InternalTransitionLabel" figure="InternalTransitionLabelFigure" elementIcon="false"/>
+  <labels name="ExternalTransitionLabel" figure="ExternalTransitionLabelFigure" elementIcon="false"/>
+</gmfgraph:Canvas>

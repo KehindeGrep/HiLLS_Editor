@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated HiLLS -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="hills.presentation.HillsModelWizardID"
+            name="%_UI_HillsModelWizard_label"
+            class="hills.presentation.HillsModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/HillsModelFile.gif">
+         <description>%_UI_HillsModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated HiLLS -->
+      <editor
+            id="hills.presentation.HillsEditorID"
+            name="%_UI_HillsEditor_label"
+            icon="icons/full/obj16/HillsModelFile.gif"
+            extensions="hills"
+            class="hills.presentation.HillsEditor"
+            contributorClass="hills.presentation.HillsActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

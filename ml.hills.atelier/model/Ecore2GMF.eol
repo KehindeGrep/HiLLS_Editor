@@ -1,0 +1,20 @@
+var palette := GmfTool!Palette.all.first();
+var toolGroupTemporalLogic= new GmfTool!ToolGroup;
+toolGroupTemporalLogic.title := 'TemporalLogic';
+toolGroupTemporalLogic.collapsible := true;
+palette.tools.add(toolGroupTemporalLogic);
+var toolGroupObjects = GmfTool!ToolGroup.all.selectOne(r|r.title = 'Objects');
+var toolGroupConnections = GmfTool!ToolGroup.all.selectOne(r|r.title = 'Connections');
+var toolEntry;
+toolEntry = toolGroupObjects.tools.selectOne(r|r.title = 'UExistence');
+toolGroupTemporalLogic.tools.add(toolEntry);
+toolEntry = toolGroupObjects.tools.selectOne(r|r.title = 'BExistence');
+toolGroupTemporalLogic.tools.add(toolEntry);
+toolEntry = toolGroupObjects.tools.selectOne(r|r.title = 'EExistence');
+toolGroupTemporalLogic.tools.add(toolEntry);
+toolEntry = toolGroupObjects.tools.selectOne(r|r.title = 'CAbsence');
+toolGroupTemporalLogic.tools.add(toolEntry);
+
+
+var sejournTimeFigure = GmfGraph!Rectangle.all.selectOne(r|r.name = 'SojournTimeFigure');
+delete sejournTimeFigure.border;

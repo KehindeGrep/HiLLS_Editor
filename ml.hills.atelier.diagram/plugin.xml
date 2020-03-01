@@ -1,0 +1,1061 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<!--
+
+-->
+<plugin>
+
+   <extension point="org.eclipse.team.core.fileTypes" id="repo-ftype">
+      <?gmfgen generated="true"?>
+      <fileTypes type="text" extension="dhills"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser" id="resource-factory">
+      <?gmfgen generated="true"?>
+      <parser
+         type="dhills"
+         class="org.eclipse.gmf.runtime.emf.core.resources.GMFResourceFactory">
+      </parser>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors" id="gmf-editor">
+      <?gmfgen generated="true"?>
+      <editor
+         id="hills.diagram.part.HillsDiagramEditorID"
+         name="%editorName"
+         icon="icons/obj16/HillsDiagramFile.gif"
+         extensions="dhills"
+         default="true"
+         class="hills.diagram.part.HillsDiagramEditor"
+         matchingStrategy="hills.diagram.part.HillsMatchingStrategy"
+         contributorClass="hills.diagram.part.HillsDiagramActionBarContributor">
+      </editor>
+   </extension>
+   
+   <extension point="org.eclipse.ui.contexts" id="ui-context">
+      <?gmfgen generated="true"?>
+      <context
+         description="%context.description"
+         id="hills.diagram.ui.diagramContext"
+         name="%context.name"
+         parentId="org.eclipse.gmf.runtime.diagram.ui.diagramContext">
+      </context>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards" id="creation-wizard">
+      <?gmfgen generated="true"?>
+  	  <wizard
+  	     name="%newWizardName"
+  	     icon="icons/obj16/HillsDiagramFile.gif"
+  	     category="org.eclipse.ui.Examples"
+  	     class="hills.diagram.part.HillsCreationWizard"
+  	     id="hills.diagram.part.HillsCreationWizardID">
+  	  	 <description>%newWizardDesc</description>  
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.popupMenus" id="init-diagram-action">
+      <?gmfgen generated="true"?>
+      <objectContribution
+            id="ml.hills.atelier.diagram.InitDiagram"
+            nameFilter="*.hills"
+            objectClass="org.eclipse.core.resources.IFile">
+         <action
+               label="%initDiagramActionLabel"
+               class="hills.diagram.part.HillsInitDiagramFileAction"
+               menubarPath="additions"
+               enablesFor="1"
+               id="ml.hills.atelier.diagram.InitDiagramAction">
+         </action>
+      </objectContribution>
+   </extension>
+	
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.action.globalActionHandlerProviders" id="global-actions">
+      <?gmfgen generated="true"?>
+      <GlobalActionHandlerProvider
+         class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramGlobalActionHandlerProvider"
+         id="HillsPresentation">
+         <Priority name="Lowest"/>
+         <ViewId id="hills.diagram.part.HillsDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="delete"/>
+            </ElementType>
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart">
+               <GlobalActionId actionId="save"/>
+            </ElementType>
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="save">
+               </GlobalActionId>
+            </ElementType>        
+         </ViewId>
+      </GlobalActionHandlerProvider>
+      <GlobalActionHandlerProvider
+         class="org.eclipse.gmf.runtime.diagram.ui.printing.render.providers.DiagramWithPrintGlobalActionHandlerProvider"
+         id="HillsPresentationPrint">
+         <Priority name="Lowest"/>
+         <ViewId id="hills.diagram.part.HillsDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="print"/>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
+      <GlobalActionHandlerProvider
+         class="org.eclipse.gmf.runtime.diagram.ui.providers.ide.providers.DiagramIDEGlobalActionHandlerProvider"
+         id="HillsPresentationIDE">
+         <Priority name="Lowest"/>
+         <ViewId id="hills.diagram.part.HillsDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="bookmark"/>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
+      <GlobalActionHandlerProvider
+            class="org.eclipse.gmf.runtime.diagram.ui.render.providers.DiagramUIRenderGlobalActionHandlerProvider"
+            id="HillsRender">
+         <Priority name="Lowest"/>
+         <ViewId id="hills.diagram.part.HillsDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="cut"/>
+               <GlobalActionId actionId="copy"/>
+               <GlobalActionId actionId="paste"/>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
+   </extension>
+
+
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.markerNavigationProviders" id="markers-navigation">
+      <?gmfgen generated="true"?>
+      <MarkerNavigationProvider class="hills.diagram.providers.HillsMarkerNavigationProvider">
+         <MarkerType name="ml.hills.atelier.diagram.diagnostic"/>
+         <Priority name="Lowest"/>
+      </MarkerNavigationProvider>
+   </extension>
+
+   <extension id="diagnostic" name="Hills Plugin problems" point="org.eclipse.core.resources.markers">
+      <?gmfgen generated="true"?>
+      <super type="org.eclipse.core.resources.problemmarker"/>
+      <super type="org.eclipse.gmf.runtime.common.ui.services.marker"/>
+      <persistent value="true"/>
+   </extension>   
+
+   <extension id="validationDecoratorProvider" name="ValidationDecorations" point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders">
+      <?gmfgen generated="true"?>
+      <decoratorProvider class="hills.diagram.providers.HillsValidationDecoratorProvider">
+         <Priority name="Lowest"/>
+         <object class="org.eclipse.gmf.runtime.diagram.ui.editparts.IPrimaryEditPart(org.eclipse.gmf.runtime.diagram.ui)" id="PRIMARY_VIEW"/>
+         <context decoratorTargets="PRIMARY_VIEW"/>
+      </decoratorProvider>
+   </extension>
+
+   <extension point="org.eclipse.core.runtime.preferences" id="prefs">
+      <?gmfgen generated="true"?>
+      <initializer class="hills.diagram.preferences.DiagramPreferenceInitializer"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.preferencePages" id="prefpages">
+      <?gmfgen generated="true"?>
+      <page
+            id="ml.hills.atelier.diagram.general"
+            name="%prefpage.ml.hills.atelier.diagram.general"
+            class="hills.diagram.preferences.DiagramGeneralPreferencePage">
+      </page>
+      <page
+            id="ml.hills.atelier.diagram.appearance"
+            name="%prefpage.ml.hills.atelier.diagram.appearance"
+            category="ml.hills.atelier.diagram.general"
+            class="hills.diagram.preferences.DiagramAppearancePreferencePage">
+      </page>
+      <page
+            id="ml.hills.atelier.diagram.connections"
+            name="%prefpage.ml.hills.atelier.diagram.connections"
+            category="ml.hills.atelier.diagram.general"
+            class="hills.diagram.preferences.DiagramConnectionsPreferencePage">
+      </page>
+      <page
+            id="ml.hills.atelier.diagram.printing"
+            name="%prefpage.ml.hills.atelier.diagram.printing"
+            category="ml.hills.atelier.diagram.general"
+            class="hills.diagram.preferences.DiagramPrintingPreferencePage">
+      </page>
+      <page
+            id="ml.hills.atelier.diagram.rulersAndGrid"
+            name="%prefpage.ml.hills.atelier.diagram.rulersAndGrid"
+            category="ml.hills.atelier.diagram.general"
+            class="hills.diagram.preferences.DiagramRulersAndGridPreferencePage">
+      </page>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertyContributor" id="prop-contrib">
+      <?gmfgen generated="true"?>
+      <propertyContributor
+            contributorId="ml.hills.atelier.diagram"
+            labelProvider="hills.diagram.sheet.HillsSheetLabelProvider">
+         <propertyCategory category="domain"/>
+         <propertyCategory category="visual"/>
+         <propertyCategory category="extra"/>
+      </propertyContributor>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs" id="proptabs">
+      <?gmfgen generated="true"?>   
+      <propertyTabs contributorId="ml.hills.atelier.diagram">
+         <propertyTab
+             category="visual"
+             id="property.tab.AppearancePropertySection"
+             label="%tab.appearance"/>
+          <propertyTab
+             category="visual"
+             id="property.tab.DiagramPropertySection"
+             label="%tab.diagram"/>
+          <propertyTab
+             category="domain"
+             id="property.tab.domain"
+             label="%tab.domain"/>
+      </propertyTabs>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections" id="propsections">
+      <?gmfgen generated="true"?>   
+      <propertySections contributorId="ml.hills.atelier.diagram">
+         <propertySection id="property.section.ConnectorAppearancePropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.ConnectionEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.ConnectionAppearancePropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection>
+         <propertySection id="property.section.ShapeColorAndFontPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.ShapeEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.ShapeColorsAndFontsPropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection> 
+         <propertySection id="property.section.DiagramColorsAndFontsPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.DiagramEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.DiagramColorsAndFontsPropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection>     
+         <propertySection id="property.section.RulerGridPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.DiagramEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.grid.RulerGridPropertySection" 
+            tab="property.tab.DiagramPropertySection">
+         </propertySection>     
+         <propertySection
+            id="property.section.domain" 
+            tab="property.tab.domain"
+            class="hills.diagram.sheet.HillsPropertySection">
+            <input type="org.eclipse.gmf.runtime.notation.View"/>
+            <input type="org.eclipse.gef.EditPart"/>
+            <input type="hills.diagram.navigator.HillsAbstractNavigatorItem"/>
+         </propertySection>
+      </propertySections>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.diagram.core.viewProviders" id="view-provider">
+      <?gmfgen generated="true"?>
+      <viewProvider class="hills.diagram.providers.HillsViewProvider">
+         <Priority name="Lowest"/>
+         <object id="referencing-diagrams" class="org.eclipse.gmf.runtime.notation.Diagram">
+            <method name="getType()" value="hills"/>
+         </object>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Hills"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,2002,2003,2004,3001,3002,3022,3003,3023,3004,3005,3006,3007,3008,3009,3010,3011,3012,3013,3024,3014,3015,3025,3016,3017,3018,3019,3020,3021"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4001,4002,4003,4004,4005,4006"/>
+      </viewProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders" id="ep-provider">
+      <?gmfgen generated="true"?>
+      <editpartProvider class="hills.diagram.providers.HillsEditPartProvider">
+         <Priority name="Lowest"/>
+         <object class="org.eclipse.gmf.runtime.notation.Diagram" id="generated-diagram">
+            <method name="getType()" value="Hills"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
+            <method name="getType()" value="2001,2002,2003,2004,3001,3002,3022,3003,3023,3004,3005,3006,3007,3008,3009,3010,3011,3012,3013,3024,3014,3015,3025,3016,3017,3018,3019,3020,3021"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
+            <method name="getType()" value="4001,4002,4003,4004,4005,4006"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
+            <method name="getType()" value="5017,5020,5021,5026,5004,5001,5027,5002,5028,5003,5005,5008,5006,5007,5011,5009,5010,5012,5013,5029,5015,5016,5030,5018,5019,5022,5023,5024,5025"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
+            <method name="getType()" value="7001,7002,7003,7004,7005,7006,7018,7019,7007,7008,7020,7021,7009,7010,7022,7023,7024,7025,7011,7012,7026,7013,7014,7015,7016,7017"/>
+         </object>
+         <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
+      </editpartProvider>
+   </extension>
+
+   
+   <extension point="org.eclipse.gmf.runtime.emf.ui.modelingAssistantProviders" id="modelassist-provider">
+      <?gmfgen generated="true"?>
+      <modelingAssistantProvider class="hills.diagram.providers.assistants.HillsModelingAssistantProviderOfHSpecificationEditPart">
+         <Priority name="Lowest"/>
+         <object class="hills.diagram.edit.parts.HSpecificationEditPart" id="HSpecification_1000"/>
+         <context elements="HSpecification_1000"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="hills.diagram.providers.assistants.HillsModelingAssistantProviderOfHSystemEditPart">
+         <Priority name="Lowest"/>
+         <object class="hills.diagram.edit.parts.HSystemEditPart" id="HSystem_2001"/>
+         <context elements="HSystem_2001"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="hills.diagram.providers.assistants.HillsModelingAssistantProviderOfHClassEditPart">
+         <Priority name="Lowest"/>
+         <object class="hills.diagram.edit.parts.HClassEditPart" id="HClass_2002"/>
+         <context elements="HClass_2002"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="hills.diagram.providers.assistants.HillsModelingAssistantProviderOfGenericNodeEditPart">
+         <Priority name="Lowest"/>
+         <object class="hills.diagram.edit.parts.GenericNodeEditPart" id="GenericNode_2003"/>
+         <context elements="GenericNode_2003"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="hills.diagram.providers.assistants.HillsModelingAssistantProviderOfHRequirementSpecificationEditPart">
+         <Priority name="Lowest"/>
+         <object class="hills.diagram.edit.parts.HRequirementSpecificationEditPart" id="HRequirementSpecification_2004"/>
+         <context elements="HRequirementSpecification_2004"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="hills.diagram.providers.assistants.HillsModelingAssistantProviderOfFiniteConfigurationEditPart">
+         <Priority name="Lowest"/>
+         <object class="hills.diagram.edit.parts.FiniteConfigurationEditPart" id="FiniteConfiguration_3001"/>
+         <context elements="FiniteConfiguration_3001"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="hills.diagram.providers.assistants.HillsModelingAssistantProviderOfPropertyEditPart">
+         <Priority name="Lowest"/>
+         <object class="hills.diagram.edit.parts.PropertyEditPart" id="Property_3002"/>
+         <context elements="Property_3002"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="hills.diagram.providers.assistants.HillsModelingAssistantProviderOfPortDeclarationEditPart">
+         <Priority name="Lowest"/>
+         <object class="hills.diagram.edit.parts.PortDeclarationEditPart" id="PortDeclaration_3022"/>
+         <context elements="PortDeclaration_3022"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="hills.diagram.providers.assistants.HillsModelingAssistantProviderOfActivityEditPart">
+         <Priority name="Lowest"/>
+         <object class="hills.diagram.edit.parts.ActivityEditPart" id="Activity_3003"/>
+         <context elements="Activity_3003"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="hills.diagram.providers.assistants.HillsModelingAssistantProviderOfPortDeclaration2EditPart">
+         <Priority name="Lowest"/>
+         <object class="hills.diagram.edit.parts.PortDeclaration2EditPart" id="PortDeclaration_3023"/>
+         <context elements="PortDeclaration_3023"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="hills.diagram.providers.assistants.HillsModelingAssistantProviderOfSojournTimeEditPart">
+         <Priority name="Lowest"/>
+         <object class="hills.diagram.edit.parts.SojournTimeEditPart" id="SojournTime_3004"/>
+         <context elements="SojournTime_3004"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="hills.diagram.providers.assistants.HillsModelingAssistantProviderOfInitialConfigurationEditPart">
+         <Priority name="Lowest"/>
+         <object class="hills.diagram.edit.parts.InitialConfigurationEditPart" id="InitialConfiguration_3005"/>
+         <context elements="InitialConfiguration_3005"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="hills.diagram.providers.assistants.HillsModelingAssistantProviderOfPassiveConfigurationEditPart">
+         <Priority name="Lowest"/>
+         <object class="hills.diagram.edit.parts.PassiveConfigurationEditPart" id="PassiveConfiguration_3006"/>
+         <context elements="PassiveConfiguration_3006"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="hills.diagram.providers.assistants.HillsModelingAssistantProviderOfProperty2EditPart">
+         <Priority name="Lowest"/>
+         <object class="hills.diagram.edit.parts.Property2EditPart" id="Property_3007"/>
+         <context elements="Property_3007"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="hills.diagram.providers.assistants.HillsModelingAssistantProviderOfActivity2EditPart">
+         <Priority name="Lowest"/>
+         <object class="hills.diagram.edit.parts.Activity2EditPart" id="Activity_3008"/>
+         <context elements="Activity_3008"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="hills.diagram.providers.assistants.HillsModelingAssistantProviderOfTransientConfigurationEditPart">
+         <Priority name="Lowest"/>
+         <object class="hills.diagram.edit.parts.TransientConfigurationEditPart" id="TransientConfiguration_3009"/>
+         <context elements="TransientConfiguration_3009"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="hills.diagram.providers.assistants.HillsModelingAssistantProviderOfProperty3EditPart">
+         <Priority name="Lowest"/>
+         <object class="hills.diagram.edit.parts.Property3EditPart" id="Property_3010"/>
+         <context elements="Property_3010"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="hills.diagram.providers.assistants.HillsModelingAssistantProviderOfActivity3EditPart">
+         <Priority name="Lowest"/>
+         <object class="hills.diagram.edit.parts.Activity3EditPart" id="Activity_3011"/>
+         <context elements="Activity_3011"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="hills.diagram.providers.assistants.HillsModelingAssistantProviderOfTestNodeEditPart">
+         <Priority name="Lowest"/>
+         <object class="hills.diagram.edit.parts.TestNodeEditPart" id="TestNode_3012"/>
+         <context elements="TestNode_3012"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="hills.diagram.providers.assistants.HillsModelingAssistantProviderOfPortEditPart">
+         <Priority name="Lowest"/>
+         <object class="hills.diagram.edit.parts.PortEditPart" id="Port_3013"/>
+         <context elements="Port_3013"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="hills.diagram.providers.assistants.HillsModelingAssistantProviderOfPortDeclaration3EditPart">
+         <Priority name="Lowest"/>
+         <object class="hills.diagram.edit.parts.PortDeclaration3EditPart" id="PortDeclaration_3024"/>
+         <context elements="PortDeclaration_3024"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="hills.diagram.providers.assistants.HillsModelingAssistantProviderOfDeclarationEditPart">
+         <Priority name="Lowest"/>
+         <object class="hills.diagram.edit.parts.DeclarationEditPart" id="Declaration_3014"/>
+         <context elements="Declaration_3014"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="hills.diagram.providers.assistants.HillsModelingAssistantProviderOfFunctionEditPart">
+         <Priority name="Lowest"/>
+         <object class="hills.diagram.edit.parts.FunctionEditPart" id="Function_3015"/>
+         <context elements="Function_3015"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="hills.diagram.providers.assistants.HillsModelingAssistantProviderOfPortDeclaration4EditPart">
+         <Priority name="Lowest"/>
+         <object class="hills.diagram.edit.parts.PortDeclaration4EditPart" id="PortDeclaration_3025"/>
+         <context elements="PortDeclaration_3025"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="hills.diagram.providers.assistants.HillsModelingAssistantProviderOfDeclaration2EditPart">
+         <Priority name="Lowest"/>
+         <object class="hills.diagram.edit.parts.Declaration2EditPart" id="Declaration_3016"/>
+         <context elements="Declaration_3016"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="hills.diagram.providers.assistants.HillsModelingAssistantProviderOfFunction2EditPart">
+         <Priority name="Lowest"/>
+         <object class="hills.diagram.edit.parts.Function2EditPart" id="Function_3017"/>
+         <context elements="Function_3017"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="hills.diagram.providers.assistants.HillsModelingAssistantProviderOfBExistenceEditPart">
+         <Priority name="Lowest"/>
+         <object class="hills.diagram.edit.parts.BExistenceEditPart" id="BExistence_3018"/>
+         <context elements="BExistence_3018"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="hills.diagram.providers.assistants.HillsModelingAssistantProviderOfUExistenceEditPart">
+         <Priority name="Lowest"/>
+         <object class="hills.diagram.edit.parts.UExistenceEditPart" id="UExistence_3019"/>
+         <context elements="UExistence_3019"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="hills.diagram.providers.assistants.HillsModelingAssistantProviderOfEExistenceEditPart">
+         <Priority name="Lowest"/>
+         <object class="hills.diagram.edit.parts.EExistenceEditPart" id="EExistence_3020"/>
+         <context elements="EExistence_3020"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="hills.diagram.providers.assistants.HillsModelingAssistantProviderOfCAbsenceEditPart">
+         <Priority name="Lowest"/>
+         <object class="hills.diagram.edit.parts.CAbsenceEditPart" id="CAbsence_3021"/>
+         <context elements="CAbsence_3021"/>
+      </modelingAssistantProvider>
+      
+   </extension>
+
+
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.iconProviders" id="icon-provider">
+      <?gmfgen generated="true"?>
+      <IconProvider class="hills.diagram.providers.HillsIconProvider">
+         <Priority name="Low"/>
+      </IconProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.parserProviders" id="parser-provider">
+      <?gmfgen generated="true"?>
+      <ParserProvider class="hills.diagram.providers.HillsParserProvider">
+         <Priority name="Lowest"/>
+      </ParserProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders" id="decorator-provider">
+      <?gmfgen generated="true"?>
+      <decoratorProvider class="hills.diagram.providers.HillsShortcutsDecoratorProvider">
+         <Priority name="Lowest"/>
+         <object class="org.eclipse.gmf.runtime.notation.Node(org.eclipse.gmf.runtime.notation)" id="generated-top-nodes">
+            <method name="getType()" value="2001,2002,2003,2004"/>
+         </object>
+         <context decoratorTargets="generated-top-nodes"/>
+      </decoratorProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypes" id="element-types">
+      <?gmfgen generated="true"?>
+      <metamodel nsURI="http://www.webfst.fst-usttb-edu.ml/hills">
+         <metamodelType
+               id="ml.hills.atelier.diagram.HSpecification_1000"
+               name="%metatype.name.HSpecification_1000"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="HSpecification"
+               edithelper="hills.diagram.edit.helpers.HSpecificationEditHelper">
+            <param name="semanticHint" value="1000"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.webfst.fst-usttb-edu.ml/hills">
+         <metamodelType
+               id="ml.hills.atelier.diagram.HSystem_2001"
+               name="%metatype.name.HSystem_2001"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="HSystem"
+               edithelper="hills.diagram.edit.helpers.HSystemEditHelper">
+            <param name="semanticHint" value="2001"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.webfst.fst-usttb-edu.ml/hills">
+         <metamodelType
+               id="ml.hills.atelier.diagram.HClass_2002"
+               name="%metatype.name.HClass_2002"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="HClass"
+               edithelper="hills.diagram.edit.helpers.HClassEditHelper">
+            <param name="semanticHint" value="2002"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.webfst.fst-usttb-edu.ml/hills">
+         <metamodelType
+               id="ml.hills.atelier.diagram.GenericNode_2003"
+               name="%metatype.name.GenericNode_2003"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="GenericNode"
+               edithelper="hills.diagram.edit.helpers.GenericNodeEditHelper">
+            <param name="semanticHint" value="2003"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.webfst.fst-usttb-edu.ml/hills">
+         <metamodelType
+               id="ml.hills.atelier.diagram.HRequirementSpecification_2004"
+               name="%metatype.name.HRequirementSpecification_2004"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="HRequirementSpecification"
+               edithelper="hills.diagram.edit.helpers.HRequirementSpecificationEditHelper">
+            <param name="semanticHint" value="2004"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.webfst.fst-usttb-edu.ml/hills">
+         <metamodelType
+               id="ml.hills.atelier.diagram.FiniteConfiguration_3001"
+               name="%metatype.name.FiniteConfiguration_3001"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="FiniteConfiguration"
+               edithelper="hills.diagram.edit.helpers.FiniteConfigurationEditHelper">
+            <param name="semanticHint" value="3001"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.webfst.fst-usttb-edu.ml/hills">
+         <metamodelType
+               id="ml.hills.atelier.diagram.Property_3002"
+               name="%metatype.name.Property_3002"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Property"
+               edithelper="hills.diagram.edit.helpers.PropertyEditHelper">
+            <param name="semanticHint" value="3002"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.webfst.fst-usttb-edu.ml/hills">
+         <metamodelType
+               id="ml.hills.atelier.diagram.PortDeclaration_3022"
+               name="%metatype.name.PortDeclaration_3022"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="PortDeclaration"
+               edithelper="hills.diagram.edit.helpers.PortDeclarationEditHelper">
+            <param name="semanticHint" value="3022"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.webfst.fst-usttb-edu.ml/hills">
+         <metamodelType
+               id="ml.hills.atelier.diagram.Activity_3003"
+               name="%metatype.name.Activity_3003"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Activity"
+               edithelper="hills.diagram.edit.helpers.ActivityEditHelper">
+            <param name="semanticHint" value="3003"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.webfst.fst-usttb-edu.ml/hills">
+         <specializationType
+               id="ml.hills.atelier.diagram.PortDeclaration_3023"
+               name="%metatype.name.PortDeclaration_3023"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="ml.hills.atelier.diagram.PortDeclaration_3022"/>
+            <param name="semanticHint" value="3023"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://www.webfst.fst-usttb-edu.ml/hills">
+         <metamodelType
+               id="ml.hills.atelier.diagram.SojournTime_3004"
+               name="%metatype.name.SojournTime_3004"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="SojournTime"
+               edithelper="hills.diagram.edit.helpers.SojournTimeEditHelper">
+            <param name="semanticHint" value="3004"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.webfst.fst-usttb-edu.ml/hills">
+         <metamodelType
+               id="ml.hills.atelier.diagram.InitialConfiguration_3005"
+               name="%metatype.name.InitialConfiguration_3005"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="InitialConfiguration"
+               edithelper="hills.diagram.edit.helpers.InitialConfigurationEditHelper">
+            <param name="semanticHint" value="3005"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.webfst.fst-usttb-edu.ml/hills">
+         <metamodelType
+               id="ml.hills.atelier.diagram.PassiveConfiguration_3006"
+               name="%metatype.name.PassiveConfiguration_3006"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="PassiveConfiguration"
+               edithelper="hills.diagram.edit.helpers.PassiveConfigurationEditHelper">
+            <param name="semanticHint" value="3006"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.webfst.fst-usttb-edu.ml/hills">
+         <specializationType
+               id="ml.hills.atelier.diagram.Property_3007"
+               name="%metatype.name.Property_3007"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="ml.hills.atelier.diagram.Property_3002"/>
+            <param name="semanticHint" value="3007"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://www.webfst.fst-usttb-edu.ml/hills">
+         <specializationType
+               id="ml.hills.atelier.diagram.Activity_3008"
+               name="%metatype.name.Activity_3008"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="ml.hills.atelier.diagram.Activity_3003"/>
+            <param name="semanticHint" value="3008"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://www.webfst.fst-usttb-edu.ml/hills">
+         <metamodelType
+               id="ml.hills.atelier.diagram.TransientConfiguration_3009"
+               name="%metatype.name.TransientConfiguration_3009"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="TransientConfiguration"
+               edithelper="hills.diagram.edit.helpers.TransientConfigurationEditHelper">
+            <param name="semanticHint" value="3009"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.webfst.fst-usttb-edu.ml/hills">
+         <specializationType
+               id="ml.hills.atelier.diagram.Property_3010"
+               name="%metatype.name.Property_3010"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="ml.hills.atelier.diagram.Property_3002"/>
+            <param name="semanticHint" value="3010"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://www.webfst.fst-usttb-edu.ml/hills">
+         <specializationType
+               id="ml.hills.atelier.diagram.Activity_3011"
+               name="%metatype.name.Activity_3011"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="ml.hills.atelier.diagram.Activity_3003"/>
+            <param name="semanticHint" value="3011"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://www.webfst.fst-usttb-edu.ml/hills">
+         <metamodelType
+               id="ml.hills.atelier.diagram.TestNode_3012"
+               name="%metatype.name.TestNode_3012"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="TestNode"
+               edithelper="hills.diagram.edit.helpers.TestNodeEditHelper">
+            <param name="semanticHint" value="3012"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.webfst.fst-usttb-edu.ml/hills">
+         <metamodelType
+               id="ml.hills.atelier.diagram.Port_3013"
+               name="%metatype.name.Port_3013"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Port"
+               edithelper="hills.diagram.edit.helpers.PortEditHelper">
+            <param name="semanticHint" value="3013"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.webfst.fst-usttb-edu.ml/hills">
+         <specializationType
+               id="ml.hills.atelier.diagram.PortDeclaration_3024"
+               name="%metatype.name.PortDeclaration_3024"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="ml.hills.atelier.diagram.PortDeclaration_3022"/>
+            <param name="semanticHint" value="3024"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://www.webfst.fst-usttb-edu.ml/hills">
+         <metamodelType
+               id="ml.hills.atelier.diagram.Declaration_3014"
+               name="%metatype.name.Declaration_3014"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Declaration"
+               edithelper="hills.diagram.edit.helpers.DeclarationEditHelper">
+            <param name="semanticHint" value="3014"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.webfst.fst-usttb-edu.ml/hills">
+         <metamodelType
+               id="ml.hills.atelier.diagram.Function_3015"
+               name="%metatype.name.Function_3015"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Function"
+               edithelper="hills.diagram.edit.helpers.FunctionEditHelper">
+            <param name="semanticHint" value="3015"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.webfst.fst-usttb-edu.ml/hills">
+         <specializationType
+               id="ml.hills.atelier.diagram.PortDeclaration_3025"
+               name="%metatype.name.PortDeclaration_3025"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="ml.hills.atelier.diagram.PortDeclaration_3022"/>
+            <param name="semanticHint" value="3025"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://www.webfst.fst-usttb-edu.ml/hills">
+         <specializationType
+               id="ml.hills.atelier.diagram.Declaration_3016"
+               name="%metatype.name.Declaration_3016"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="ml.hills.atelier.diagram.Declaration_3014"/>
+            <param name="semanticHint" value="3016"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://www.webfst.fst-usttb-edu.ml/hills">
+         <specializationType
+               id="ml.hills.atelier.diagram.Function_3017"
+               name="%metatype.name.Function_3017"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="ml.hills.atelier.diagram.Function_3015"/>
+            <param name="semanticHint" value="3017"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://www.webfst.fst-usttb-edu.ml/hills">
+         <metamodelType
+               id="ml.hills.atelier.diagram.BExistence_3018"
+               name="%metatype.name.BExistence_3018"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="BExistence"
+               edithelper="hills.diagram.edit.helpers.BExistenceEditHelper">
+            <param name="semanticHint" value="3018"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.webfst.fst-usttb-edu.ml/hills">
+         <metamodelType
+               id="ml.hills.atelier.diagram.UExistence_3019"
+               name="%metatype.name.UExistence_3019"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="UExistence"
+               edithelper="hills.diagram.edit.helpers.UExistenceEditHelper">
+            <param name="semanticHint" value="3019"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.webfst.fst-usttb-edu.ml/hills">
+         <metamodelType
+               id="ml.hills.atelier.diagram.EExistence_3020"
+               name="%metatype.name.EExistence_3020"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="EExistence"
+               edithelper="hills.diagram.edit.helpers.EExistenceEditHelper">
+            <param name="semanticHint" value="3020"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.webfst.fst-usttb-edu.ml/hills">
+         <metamodelType
+               id="ml.hills.atelier.diagram.CAbsence_3021"
+               name="%metatype.name.CAbsence_3021"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="CAbsence"
+               edithelper="hills.diagram.edit.helpers.CAbsenceEditHelper">
+            <param name="semanticHint" value="3021"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.webfst.fst-usttb-edu.ml/hills">
+         <metamodelType
+               id="ml.hills.atelier.diagram.Composition_4001"
+               name="%metatype.name.Composition_4001"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Composition"
+               edithelper="hills.diagram.edit.helpers.CompositionEditHelper">
+            <param name="semanticHint" value="4001"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.webfst.fst-usttb-edu.ml/hills">
+         <metamodelType
+               id="ml.hills.atelier.diagram.Aggregation_4002"
+               name="%metatype.name.Aggregation_4002"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Aggregation"
+               edithelper="hills.diagram.edit.helpers.AggregationEditHelper">
+            <param name="semanticHint" value="4002"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.webfst.fst-usttb-edu.ml/hills">
+         <metamodelType
+               id="ml.hills.atelier.diagram.Reference_4003"
+               name="%metatype.name.Reference_4003"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Reference"
+               edithelper="hills.diagram.edit.helpers.ReferenceEditHelper">
+            <param name="semanticHint" value="4003"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.webfst.fst-usttb-edu.ml/hills">
+         <metamodelType
+               id="ml.hills.atelier.diagram.ConfluentTransition_4004"
+               name="%metatype.name.ConfluentTransition_4004"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="ConfluentTransition"
+               edithelper="hills.diagram.edit.helpers.ConfluentTransitionEditHelper">
+            <param name="semanticHint" value="4004"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.webfst.fst-usttb-edu.ml/hills">
+         <metamodelType
+               id="ml.hills.atelier.diagram.InternalTransition_4005"
+               name="%metatype.name.InternalTransition_4005"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="InternalTransition"
+               edithelper="hills.diagram.edit.helpers.InternalTransitionEditHelper">
+            <param name="semanticHint" value="4005"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.webfst.fst-usttb-edu.ml/hills">
+         <metamodelType
+               id="ml.hills.atelier.diagram.ExternalTransition_4006"
+               name="%metatype.name.ExternalTransition_4006"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="ExternalTransition"
+               edithelper="hills.diagram.edit.helpers.ExternalTransitionEditHelper">
+            <param name="semanticHint" value="4006"/>
+         </metamodelType>
+      </metamodel>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings" id="element-types-bindings">
+      <?gmfgen generated="true"?>
+      <clientContext id="ml.hills.atelier.diagram.TypeContext">
+         <enablement>
+            <test
+               property="org.eclipse.gmf.runtime.emf.core.editingDomain"
+               value="ml.hills.atelier.diagram.EditingDomain"/>
+         </enablement>
+      </clientContext> 
+      <binding context="ml.hills.atelier.diagram.TypeContext">
+         <elementType ref="ml.hills.atelier.diagram.HSpecification_1000"/>
+         <elementType ref="ml.hills.atelier.diagram.HSystem_2001"/>
+         <elementType ref="ml.hills.atelier.diagram.HClass_2002"/>
+         <elementType ref="ml.hills.atelier.diagram.GenericNode_2003"/>
+         <elementType ref="ml.hills.atelier.diagram.HRequirementSpecification_2004"/>
+         <elementType ref="ml.hills.atelier.diagram.FiniteConfiguration_3001"/>
+         <elementType ref="ml.hills.atelier.diagram.Property_3002"/>
+         <elementType ref="ml.hills.atelier.diagram.PortDeclaration_3022"/>
+         <elementType ref="ml.hills.atelier.diagram.Activity_3003"/>
+         <elementType ref="ml.hills.atelier.diagram.PortDeclaration_3023"/>
+         <elementType ref="ml.hills.atelier.diagram.SojournTime_3004"/>
+         <elementType ref="ml.hills.atelier.diagram.InitialConfiguration_3005"/>
+         <elementType ref="ml.hills.atelier.diagram.PassiveConfiguration_3006"/>
+         <elementType ref="ml.hills.atelier.diagram.Property_3007"/>
+         <elementType ref="ml.hills.atelier.diagram.Activity_3008"/>
+         <elementType ref="ml.hills.atelier.diagram.TransientConfiguration_3009"/>
+         <elementType ref="ml.hills.atelier.diagram.Property_3010"/>
+         <elementType ref="ml.hills.atelier.diagram.Activity_3011"/>
+         <elementType ref="ml.hills.atelier.diagram.TestNode_3012"/>
+         <elementType ref="ml.hills.atelier.diagram.Port_3013"/>
+         <elementType ref="ml.hills.atelier.diagram.PortDeclaration_3024"/>
+         <elementType ref="ml.hills.atelier.diagram.Declaration_3014"/>
+         <elementType ref="ml.hills.atelier.diagram.Function_3015"/>
+         <elementType ref="ml.hills.atelier.diagram.PortDeclaration_3025"/>
+         <elementType ref="ml.hills.atelier.diagram.Declaration_3016"/>
+         <elementType ref="ml.hills.atelier.diagram.Function_3017"/>
+         <elementType ref="ml.hills.atelier.diagram.BExistence_3018"/>
+         <elementType ref="ml.hills.atelier.diagram.UExistence_3019"/>
+         <elementType ref="ml.hills.atelier.diagram.EExistence_3020"/>
+         <elementType ref="ml.hills.atelier.diagram.CAbsence_3021"/>
+         <elementType ref="ml.hills.atelier.diagram.Composition_4001"/>
+         <elementType ref="ml.hills.atelier.diagram.Aggregation_4002"/>
+         <elementType ref="ml.hills.atelier.diagram.Reference_4003"/>
+         <elementType ref="ml.hills.atelier.diagram.ConfluentTransition_4004"/>
+         <elementType ref="ml.hills.atelier.diagram.InternalTransition_4005"/>
+         <elementType ref="ml.hills.atelier.diagram.ExternalTransition_4006"/>
+         <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
+      </binding>
+   </extension>
+	   <extension point="org.eclipse.core.expressions.propertyTesters" id="navigator-proptest.isURIEditorInput">
+      <?gmfgen generated="true"?>
+       <propertyTester
+           id="ml.hills.atelier.diagram.URIEditorInputPropertyTester"
+           type="org.eclipse.emf.common.ui.URIEditorInput"
+           namespace="ml.hills.atelier.diagram"
+           properties="isURIEditorInput"
+           class="hills.diagram.part.HillsUriEditorInputTester">
+       </propertyTester>
+   </extension>
+
+	   <extension point="org.eclipse.core.expressions.propertyTesters" id="navigator-proptest.isShortcut">
+      <?gmfgen generated="true"?>
+       <propertyTester
+           id="ml.hills.atelier.diagram.ShortcutPropertyTester"
+           type="org.eclipse.gmf.runtime.notation.View"
+           namespace="ml.hills.atelier.diagram"
+           properties="isShortcut"
+           class="hills.diagram.part.HillsShortcutPropertyTester">
+       </propertyTester>
+   </extension>
+
+	   <extension point="org.eclipse.ui.navigator.viewer" id="navigator-viewbinding">
+      <?gmfgen generated="true"?>
+      <viewerContentBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+         <includes>
+            <contentExtension pattern="ml.hills.atelier.diagram.resourceContent"/>
+			<contentExtension pattern="ml.hills.atelier.diagram.domainResourceContent"/>
+            <contentExtension pattern="ml.hills.atelier.diagram.navigatorLinkHelper"/>
+         </includes>
+      </viewerContentBinding>
+      <viewerActionBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+         <includes>
+            <actionExtension pattern="ml.hills.atelier.diagram.navigatorActionProvider"/>
+         </includes>
+      </viewerActionBinding>
+   </extension>
+
+   <extension point="org.eclipse.ui.navigator.navigatorContent" id="navigator-content">
+      <?gmfgen generated="true"?>
+      <navigatorContent
+            id="ml.hills.atelier.diagram.resourceContent" 
+            name="%navigatorContentName" 
+            priority="normal" 
+            contentProvider="hills.diagram.navigator.HillsNavigatorContentProvider" 
+            labelProvider="hills.diagram.navigator.HillsNavigatorLabelProvider"
+            icon="icons/obj16/HillsDiagramFile.gif"
+            activeByDefault="true">
+         <triggerPoints>
+            <or>
+	           <and>
+    	          <instanceof value="org.eclipse.core.resources.IFile"/>
+        	      <test property="org.eclipse.core.resources.extension" value="dhills"/>
+               </and>
+               <instanceof value="hills.diagram.navigator.HillsAbstractNavigatorItem"/>
+           	   <adapt type="org.eclipse.gmf.runtime.notation.View">
+           	      <test property="ml.hills.atelier.diagram.isShortcut"/>
+           	   </adapt>
+            </or>
+         </triggerPoints>
+         <possibleChildren>
+            <or>
+         	   <instanceof value="hills.diagram.navigator.HillsAbstractNavigatorItem"/>
+           	   <adapt type="org.eclipse.gmf.runtime.notation.View">
+           	      <test property="ml.hills.atelier.diagram.isShortcut"/>
+           	   </adapt>
+            </or>
+         </possibleChildren>
+         <commonSorter 
+               id="ml.hills.atelier.diagram.navigatorSorter" 
+               class="hills.diagram.navigator.HillsNavigatorSorter">
+            <parentExpression>
+               <or>
+	              <and>
+    	             <instanceof value="org.eclipse.core.resources.IFile"/>
+        	         <test property="org.eclipse.core.resources.extension" value="dhills"/>
+                  </and>
+                  <instanceof value="hills.diagram.navigator.HillsAbstractNavigatorItem"/>
+               </or>
+            </parentExpression>
+         </commonSorter>
+      </navigatorContent>
+      <navigatorContent
+            id="ml.hills.atelier.diagram.domainResourceContent" 
+            name="%domainNavigatorContentName" 
+            priority="normal" 
+            contentProvider="hills.diagram.navigator.HillsDomainNavigatorContentProvider" 
+            labelProvider="hills.diagram.navigator.HillsDomainNavigatorLabelProvider"
+            icon="icons/obj16/HillsDiagramFile.gif"
+            activeByDefault="true">
+         <triggerPoints>
+            <or>
+	           <and>
+    	          <instanceof value="org.eclipse.core.resources.IFile"/>
+        	      <test property="org.eclipse.core.resources.extension" value="hills"/>
+               </and>
+               <instanceof value="hills.diagram.navigator.HillsDomainNavigatorItem"/>
+            </or>
+         </triggerPoints>
+         <possibleChildren>
+            <instanceof value="hills.diagram.navigator.HillsDomainNavigatorItem"/>
+         </possibleChildren>
+      </navigatorContent>
+      <actionProvider
+            id="ml.hills.atelier.diagram.navigatorActionProvider"
+            class="hills.diagram.navigator.HillsNavigatorActionProvider">
+         <enablement>
+            <or>
+               <instanceof value="hills.diagram.navigator.HillsAbstractNavigatorItem"/>
+           	   <adapt type="org.eclipse.gmf.runtime.notation.View">
+           	      <test property="ml.hills.atelier.diagram.isShortcut"/>
+           	   </adapt>
+            </or>
+         </enablement>
+      </actionProvider>
+   </extension>
+   
+	   <extension point="org.eclipse.ui.navigator.linkHelper" id="navigator-linkhelper">
+      <?gmfgen generated="true"?>
+      <linkHelper
+            id="ml.hills.atelier.diagram.navigatorLinkHelper"
+            class="hills.diagram.navigator.HillsNavigatorLinkHelper">
+         <editorInputEnablement>
+            <and>
+               <instanceof value="org.eclipse.emf.common.ui.URIEditorInput"/>
+               <test property="ml.hills.atelier.diagram.isURIEditorInput"/>
+            </and>
+         </editorInputEnablement>
+         <selectionEnablement>
+            <instanceof value="hills.diagram.navigator.HillsAbstractNavigatorItem"/>
+         </selectionEnablement>
+      </linkHelper>
+   </extension>
+   <extension point="org.eclipse.ui.commands" id="update-cmd">
+      <?gmfgen generated="true"?>
+      <command
+         categoryId="org.eclipse.ui.category.edit"
+         defaultHandler="hills.diagram.part.HillsDiagramUpdateCommand"
+         description="%update.diagram.description"
+         id="hills.diagram.updateDiagram"
+         name="%update.diagram.name"/>
+   </extension>
+   
+   <extension point="org.eclipse.ui.bindings" id="update-cmd-binding">
+      <?gmfgen generated="true"?>
+      <key 
+         commandId="hills.diagram.updateDiagram"
+         contextId="hills.diagram.ui.diagramContext"
+         schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+         sequence="F5"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.menus" id="context-menus">
+      <?gmfgen generated="true"?>
+      <!-- menuContribution locationURI="menu:org.eclipse.ui.main.menu?after=">
+      </menuContribution>
+      <menuContribution locationURI="toolbar:org.eclipse.ui.main.toolbar?after=">
+      </menuContribution -->
+      <menuContribution locationURI="popup:org.eclipse.gmf.runtime.diagram.ui.DiagramEditorContextMenu">
+         <command commandId="ml.hills.atelier.diagram.LoadResourceAction">
+            <visibleWhen>
+               <and>
+                  <with variable="activePartId"><equals value="hills.diagram.part.HillsDiagramEditorID"/></with>
+                  <with variable="selection"><iterate ifEmpty="false"> 
+                     <instanceof value="hills.diagram.edit.parts.HSpecificationEditPart"/>
+                  </iterate></with>
+               </and>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+
+   <extension point="org.eclipse.ui.commands" id="menu-commands">
+      <?gmfgen generated="true"?>
+      <category id="hills.diagram.part.HillsDiagramEditorID" name="%cmdcategory.name" description="%cmdcategory.desc"/>
+      <command id="ml.hills.atelier.diagram.LoadResourceAction"
+         name="Load Resource"
+         categoryId="hills.diagram.part.HillsDiagramEditorID"
+         defaultHandler="hills.diagram.part.LoadResourceAction"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.handlers" id="menu-handlers">
+      <?gmfgen generated="true"?>
+   </extension>
+
+   <!-- optionally, specify keybindings -->
+</plugin>

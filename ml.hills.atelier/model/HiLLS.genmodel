@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="" modelDirectory="/ml.hills.atelier/src" modelPluginID="ml.hills.atelier"
+    modelName="Hills" importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0"
+    copyrightFields="false">
+  <foreignModel>HiLLS.emf</foreignModel>
+  <genPackages prefix="Hills" disposableProviderFactory="true" ecorePackage="HiLLS.ecore#/">
+    <genClasses ecoreClass="HiLLS.ecore#//HSpecification">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HiLLS.ecore#//HSpecification/nomModele"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HiLLS.ecore#//HSpecification/descripModele"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HiLLS.ecore#//HSpecification/composants"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HiLLS.ecore#//HSpecification/liens"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HiLLS.ecore#//HSpecification/hspecification"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HiLLS.ecore#//HSpecification/genericNodes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HiLLS.ecore#//HSpecification/requirementSpecification"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="HiLLS.ecore#//Nomme">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HiLLS.ecore#//Nomme/ntime"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="HiLLS.ecore#//HClassifier">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HiLLS.ecore#//HClassifier/ports"/>
+    </genClasses>
+    <genClasses ecoreClass="HiLLS.ecore#//HSystem">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HiLLS.ecore#//HSystem/declaratios"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HiLLS.ecore#//HSystem/fonctions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HiLLS.ecore#//HSystem/configurations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HiLLS.ecore#//HSystem/transitions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HiLLS.ecore#//HSystem/conditions"/>
+    </genClasses>
+    <genClasses ecoreClass="HiLLS.ecore#//HClass">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HiLLS.ecore#//HClass/declaratios"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HiLLS.ecore#//HClass/fonctions"/>
+    </genClasses>
+    <genClasses ecoreClass="HiLLS.ecore#//Port">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HiLLS.ecore#//Port/pname"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HiLLS.ecore#//Port/othername"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HiLLS.ecore#//Port/entreePorts"/>
+    </genClasses>
+    <genClasses ecoreClass="HiLLS.ecore#//PortDeclaration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HiLLS.ecore#//PortDeclaration/pdeclaration"/>
+    </genClasses>
+    <genClasses ecoreClass="HiLLS.ecore#//GenericNode"/>
+    <genClasses image="false" ecoreClass="HiLLS.ecore#//Lien">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HiLLS.ecore#//Lien/llabel"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference HiLLS.ecore#//Lien/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference HiLLS.ecore#//Lien/target"/>
+    </genClasses>
+    <genClasses ecoreClass="HiLLS.ecore#//Composition"/>
+    <genClasses ecoreClass="HiLLS.ecore#//Aggregation"/>
+    <genClasses ecoreClass="HiLLS.ecore#//Reference"/>
+    <genClasses image="false" ecoreClass="HiLLS.ecore#//ConfNomme">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HiLLS.ecore#//ConfNomme/libelle"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="HiLLS.ecore#//Configuration"/>
+    <genClasses image="false" ecoreClass="HiLLS.ecore#//Transition">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference HiLLS.ecore#//Transition/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference HiLLS.ecore#//Transition/target"/>
+    </genClasses>
+    <genClasses ecoreClass="HiLLS.ecore#//Declaration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HiLLS.ecore#//Declaration/ename"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HiLLS.ecore#//Declaration/declarations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HiLLS.ecore#//Declaration/predicats"/>
+    </genClasses>
+    <genClasses ecoreClass="HiLLS.ecore#//FiniteConfiguration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HiLLS.ecore#//FiniteConfiguration/proprietes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HiLLS.ecore#//FiniteConfiguration/activites"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HiLLS.ecore#//FiniteConfiguration/SojTime"/>
+    </genClasses>
+    <genClasses ecoreClass="HiLLS.ecore#//InitialConfiguration"/>
+    <genClasses ecoreClass="HiLLS.ecore#//PassiveConfiguration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HiLLS.ecore#//PassiveConfiguration/proprietes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HiLLS.ecore#//PassiveConfiguration/activites"/>
+    </genClasses>
+    <genClasses ecoreClass="HiLLS.ecore#//TransientConfiguration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HiLLS.ecore#//TransientConfiguration/proprietes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HiLLS.ecore#//TransientConfiguration/activites"/>
+    </genClasses>
+    <genClasses ecoreClass="HiLLS.ecore#//ConfluentTransition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HiLLS.ecore#//ConfluentTransition/ctname"/>
+    </genClasses>
+    <genClasses ecoreClass="HiLLS.ecore#//InternalTransition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HiLLS.ecore#//InternalTransition/itname"/>
+    </genClasses>
+    <genClasses ecoreClass="HiLLS.ecore#//ExternalTransition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HiLLS.ecore#//ExternalTransition/etname"/>
+    </genClasses>
+    <genClasses ecoreClass="HiLLS.ecore#//Function">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HiLLS.ecore#//Function/fname"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HiLLS.ecore#//Function/declarations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HiLLS.ecore#//Function/ppredicats"/>
+    </genClasses>
+    <genClasses ecoreClass="HiLLS.ecore#//Property">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HiLLS.ecore#//Property/prname1"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HiLLS.ecore#//Property/prname2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HiLLS.ecore#//Property/ppredicats"/>
+    </genClasses>
+    <genClasses ecoreClass="HiLLS.ecore#//Activity">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HiLLS.ecore#//Activity/acname1"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HiLLS.ecore#//Activity/acname2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HiLLS.ecore#//Activity/ppredicats"/>
+    </genClasses>
+    <genClasses ecoreClass="HiLLS.ecore#//SojournTime">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HiLLS.ecore#//SojournTime/stime"/>
+    </genClasses>
+    <genClasses ecoreClass="HiLLS.ecore#//TestNode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HiLLS.ecore#//TestNode/ttime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HiLLS.ecore#//TestNode/contenu"/>
+    </genClasses>
+    <genClasses ecoreClass="HiLLS.ecore#//HRequirementSpecification">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HiLLS.ecore#//HRequirementSpecification/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HiLLS.ecore#//HRequirementSpecification/temporalProperties"/>
+    </genClasses>
+    <genClasses ecoreClass="HiLLS.ecore#//BExistence">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HiLLS.ecore#//BExistence/bename"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HiLLS.ecore#//BExistence/predicats"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HiLLS.ecore#//BExistence/declarations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HiLLS.ecore#//BExistence/ppredicats"/>
+    </genClasses>
+    <genClasses ecoreClass="HiLLS.ecore#//UExistence">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HiLLS.ecore#//UExistence/uename"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HiLLS.ecore#//UExistence/predicats"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HiLLS.ecore#//UExistence/declarations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HiLLS.ecore#//UExistence/ppredicats"/>
+    </genClasses>
+    <genClasses ecoreClass="HiLLS.ecore#//EExistence">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HiLLS.ecore#//EExistence/eename"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HiLLS.ecore#//EExistence/predicats"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HiLLS.ecore#//EExistence/declarations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HiLLS.ecore#//EExistence/ppredicats"/>
+    </genClasses>
+    <genClasses ecoreClass="HiLLS.ecore#//CAbsence">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HiLLS.ecore#//CAbsence/caname"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HiLLS.ecore#//CAbsence/predicats"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HiLLS.ecore#//CAbsence/declarations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HiLLS.ecore#//CAbsence/ppredicats"/>
+    </genClasses>
+    <genClasses ecoreClass="HiLLS.ecore#//TLProperty">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference HiLLS.ecore#//TLProperty/pattern"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference HiLLS.ecore#//TLProperty/scope"/>
+    </genClasses>
+    <genClasses ecoreClass="HiLLS.ecore#//ResponseChain"/>
+    <genClasses ecoreClass="HiLLS.ecore#//PrecedenceChain"/>
+    <genClasses ecoreClass="HiLLS.ecore#//BoundedExistence">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HiLLS.ecore#//BoundedExistence/frequency"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference HiLLS.ecore#//BoundedExistence/state"/>
+    </genClasses>
+    <genClasses ecoreClass="HiLLS.ecore#//PropertyPattern">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HiLLS.ecore#//PropertyPattern/ppname"/>
+    </genClasses>
+    <genClasses ecoreClass="HiLLS.ecore#//MultiTrigger">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference HiLLS.ecore#//MultiTrigger/triggers"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference HiLLS.ecore#//MultiTrigger/response"/>
+    </genClasses>
+    <genClasses ecoreClass="HiLLS.ecore#//SingleTrigger">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference HiLLS.ecore#//SingleTrigger/triggers"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference HiLLS.ecore#//SingleTrigger/responses"/>
+    </genClasses>
+    <genClasses ecoreClass="HiLLS.ecore#//MultiCause">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference HiLLS.ecore#//MultiCause/causes"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference HiLLS.ecore#//MultiCause/effect"/>
+    </genClasses>
+    <genClasses ecoreClass="HiLLS.ecore#//Response">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference HiLLS.ecore#//Response/trigger"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference HiLLS.ecore#//Response/response"/>
+    </genClasses>
+    <genClasses ecoreClass="HiLLS.ecore#//Universality">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference HiLLS.ecore#//Universality/state"/>
+    </genClasses>
+    <genClasses ecoreClass="HiLLS.ecore#//Precedence"/>
+    <genClasses ecoreClass="HiLLS.ecore#//SingleCause">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference HiLLS.ecore#//SingleCause/causes"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference HiLLS.ecore#//SingleCause/effects"/>
+    </genClasses>
+    <genClasses ecoreClass="HiLLS.ecore#//Existence">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference HiLLS.ecore#//Existence/state"/>
+    </genClasses>
+    <genClasses ecoreClass="HiLLS.ecore#//Absence">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference HiLLS.ecore#//Absence/state"/>
+    </genClasses>
+    <genClasses ecoreClass="HiLLS.ecore#//Proposition"/>
+    <genClasses ecoreClass="HiLLS.ecore#//Predicat"/>
+    <genClasses ecoreClass="HiLLS.ecore#//Before">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference HiLLS.ecore#//Before/delimiter"/>
+    </genClasses>
+    <genClasses ecoreClass="HiLLS.ecore#//After">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference HiLLS.ecore#//After/delimiter"/>
+    </genClasses>
+    <genClasses ecoreClass="HiLLS.ecore#//Global"/>
+    <genClasses ecoreClass="HiLLS.ecore#//AfterUntil">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference HiLLS.ecore#//AfterUntil/startDelimiter"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference HiLLS.ecore#//AfterUntil/endDelimiter"/>
+    </genClasses>
+    <genClasses ecoreClass="HiLLS.ecore#//Scope"/>
+    <genClasses ecoreClass="HiLLS.ecore#//Between">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference HiLLS.ecore#//Between/startDelimiter"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference HiLLS.ecore#//Between/endDelimiter"/>
+    </genClasses>
+    <genClasses ecoreClass="HiLLS.ecore#//Implication"/>
+    <genClasses ecoreClass="HiLLS.ecore#//Next"/>
+    <genClasses ecoreClass="HiLLS.ecore#//Concurrency"/>
+    <genClasses image="false" ecoreClass="HiLLS.ecore#//TLLien">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HiLLS.ecore#//TLLien/tll"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference HiLLS.ecore#//TLLien/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference HiLLS.ecore#//TLLien/target"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
